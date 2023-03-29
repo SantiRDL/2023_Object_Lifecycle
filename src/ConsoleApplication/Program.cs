@@ -22,6 +22,12 @@ namespace ConsoleApplication
             var train = new Train();
             train.StartEngines();
             Console.WriteLine("Hello World!");
+
+            for (int i = 0; i < 100; i++)
+            {
+                var trains = new Train();
+                Console.WriteLine(trains.Count);
+            }
         }
     }
 }

@@ -6,6 +6,7 @@
 
 using System;
 
+
 namespace ClassLibrary
 {
     /// <summary>
@@ -18,6 +19,9 @@ namespace ClassLibrary
         /// </summary>
         /// <value><c>true</c> si las máquinas fueron encendidas, <c>false</c> en caso contrario.</value>
         public bool IsEngineStarted { get; private set; }
+        public int Count {get; set;}
+        private static int count = 0;
+        public string Id {get; set;}
 
         /// <summary>
         /// Enciende las máquinas del tren.
@@ -56,5 +60,24 @@ namespace ClassLibrary
             Console.Write("The engines are already stopped");
             return this.IsEngineStarted;
         }
+
+        private void Counting()
+        {
+           count++;
+           this.Count = count;
+        }
+        public void Identifier(string id)
+        {
+            this.Id = id;
+            this.Counting();
+            
+        }
+        ~Train()
+        {
+        count--;
+        this.Count = count;
+        }
+
+
     }
 }
